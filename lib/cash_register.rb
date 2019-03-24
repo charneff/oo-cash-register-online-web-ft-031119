@@ -1,29 +1,27 @@
 class CashRegister
-
   def initialize(employee_discount = nil)
     @total = 0
-    @discount = employee_discount 
+    @discount = employee_discount
     @purchased_stuff = []
   end
-  
-  def total= (input_total)
+  def total=(input_total)
     @total = input_total
   end
-  
   def total
     @total
   end
-  
-  def add_item(title, price, qty = 1)
-    complete_cost = price * qty
+  def discount
+    @discount
+  end
+  def add_item(item, cost, multiplier = 1)
+    complete_cost = cost * multiplier
     @total = @total + complete_cost
-    @last_transaction - []
+    @last_transaction = []
     @last_transaction = [item, cost, multiplier]
     multiplier.times do
       @purchased_stuff << item
     end
   end
-  
   def apply_discount
     if @discount != nil
       step_one = 100 - @discount
@@ -40,7 +38,6 @@ class CashRegister
       "There is no discount to apply."
     end
   end
-  
   def items
     @purchased_stuff
   end
@@ -53,3 +50,9 @@ class CashRegister
   end
 end
 
+
+ register = CashRegister.new(20)
+register.add_item("macbook air", 1000)
+puts register.total
+puts register.apply_discount
+puts register.total
