@@ -21,6 +21,7 @@ class CashRegister
     @last_transaction = [item, cost, multiplier]
     multiplier.times do
       @purchased_stuff << item
+    end
   end
   
   def apply_discount
