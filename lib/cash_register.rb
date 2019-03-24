@@ -35,6 +35,7 @@ class CashRegister
       "There is no discount to apply."
     end
   end
+  
   def items
     @purchased_stuff
   end
@@ -45,6 +46,5 @@ class CashRegister
       @purchased_stuff.delete_at(@purchased_stuff.index(@last_transaction[0]))
     end
   end
-end
 end
 
